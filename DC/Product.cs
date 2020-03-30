@@ -6,7 +6,9 @@ namespace DC
 {
     class Product
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string NameProduct { get; set; }
+
+        public Dictionary<string, string> Products = new Dictionary<string, string>();
     }
 }

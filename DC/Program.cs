@@ -25,6 +25,14 @@ namespace DC
                     note = Console.ReadLine();
 
                     productManager.AddProduct(note);
+                    if (productManager.AddProduct(note))
+                    {
+                        Console.WriteLine("Sucсess");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Error");
+                    }
                 }
                 else
                 {

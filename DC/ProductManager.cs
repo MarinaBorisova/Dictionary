@@ -6,42 +6,29 @@ namespace DC
 {
     class ProductManager
     {
-        string item, valuea;
-        private Dictionary<string, string> ProductDictionary = new Dictionary<string, string>();
+        string item, value;
+        private Dictionary<string, string> Products = new Dictionary<string, string>();
 
-        public string this[string key]
+        public Product GetProduct(string id)
         {
-            get
-            {
-                return ProductDictionary[key];
-            }
-            set
-            {
-                if (!ProductDictionary.ContainsKey(item) || !ProductDictionary.ContainsValue(valuea))
-                {
-                    ProductDictionary[key] = value;
-                }
-                else
-                {
-                    ProductDictionary[key] = null;
-                }
-            }
+            var product = new Product();
+            //add functional
         }
 
-        public void AddProduct(string Note)
+        public bool AddProduct(string Note)
         {
-           item = Note.Substring(0, Note.IndexOf(' '));
-           valuea = Note.Substring(Note.IndexOf(' ') + 1);
+            item = Note.Substring(0, Note.IndexOf(' '));
+            value = Note.Substring(Note.IndexOf(' ') + 1);
 
 
-            if (ProductDictionary.ContainsKey(item) || ProductDictionary.ContainsValue(valuea))
+            if (Products.ContainsKey(item) || Products.ContainsValue(value))
             {
-                Console.WriteLine("Error");
+                return false;
             }
             else
             {
-                ProductDictionary.Add(item, valuea);
-                Console.WriteLine("Success");
+                Products.Add(item, value);
+                return true;
             }
         }
 
