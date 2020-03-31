@@ -1,56 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace DC
 {
     class ProductManager
     {
         string item, value;
-        private Dictionary<string, string> Products = new Dictionary<string, string>();
+        private Dictionary<string, Product> Products = new Dictionary<string, Product>();
 
-        public bool AddProduct(string Note)
+        public bool AddProduct(Product product)
         {
-            item = Note.Substring(0, Note.IndexOf(' '));
-            value = Note.Substring(Note.IndexOf(' ') + 1);
+            //Поменять
+            
 
 
-            if (Products.ContainsKey(item) || Products.ContainsValue(value))
+            if (Products.ContainsKey(product.Id))
             {
                 return false;
             }
             else
             {
-                Products.Add(item, value);
+                Products.Add(product.Id, product);
                 return true;
             }
         }
 
-        //public Product GetSomeProducts(string item)
-        //{
-        //    var products = new Product();
-
-        //    if (Products.ContainsKey(item))
-        //    {
-        //        products.Id = item;
-        //        products.NameProduct = value;
-
-        //        return products;
-        //    }
-        //}
-        
-        
-        public Dictionary<string, string> WatchAllProduct()
+        public Product GetProduct(string id)
         {
-            foreach (KeyValuePair<string, string> pair in Products)
-            {
-                return Products;
-            }
-            var EndProducts = new Dictionary<string, string>
-            {
-                { "*******", "******" }
-            };
-            return EndProducts;
+            return Products.TryGetValue(id, out var product)? product : null;
+        }
+
+
+        public IList<Product> GetProducts()
+        {
+            return Products.Select(p => p.Value).ToList();   
         }
 
             

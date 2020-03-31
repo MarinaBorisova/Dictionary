@@ -10,7 +10,7 @@ namespace DC
         static void Main(string[] args)
         {
             var key = 'y';
-            string note;
+
 
             ProductManager productManager = new ProductManager();
 
@@ -22,9 +22,11 @@ namespace DC
                 if (key == 'y')
                 {
                     Console.WriteLine("Enter:");
-                    note = Console.ReadLine();
+                    var  note = Console.ReadLine();
 
-                    if (productManager.AddProduct(note))
+                    var product1 = new Product(note.Substring(0, note.IndexOf(' ')), note.Substring(note.IndexOf(' ') + 1));
+
+                    if (productManager.AddProduct(product1))
                     {
                         Console.WriteLine("Sucсess");
                     }
@@ -39,12 +41,19 @@ namespace DC
                 }
             }
 
-            Dictionary<string,string> ListProducts = productManager.WatchAllProduct();
-            foreach (KeyValuePair<string, string> keyValuePair in ListProducts)
+            var products = productManager.GetProducts();
+            foreach (var product in products)
             {
-                Console.WriteLine($"{keyValuePair.Key} - {keyValuePair.Value}");
+                Console.WriteLine($"{product.Id} - {product.NameProduct}");
             }
-            //Console.WriteLine(productManager.WatchAllProduct().ToString());
+
+            Console.WriteLine("Enter product ID:");
+            string item = Console.ReadLine();
+
+            var product2 = productManager.GetProduct(item);
+            Console.WriteLine($"Your product: {product2.Id} - {product2.NameProduct}");
+
+
             Console.ReadLine();
         }
     }
