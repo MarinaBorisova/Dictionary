@@ -1,18 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace DC
+namespace DC.Core
 {
-    class ProductManager
+    public sealed class ProductManager
     {
-        string item, value;
         private Dictionary<string, Product> Products = new Dictionary<string, Product>();
 
         public bool AddProduct(Product product)
         {
-            //Поменять
-            
-
 
             if (Products.ContainsKey(product.Id))
             {
@@ -27,15 +23,14 @@ namespace DC
 
         public Product GetProduct(string id)
         {
-            return Products.TryGetValue(id, out var product)? product : null;
+            return Products.TryGetValue(id, out var product) ? product : null;
         }
 
 
         public IList<Product> GetProducts()
         {
-            return Products.Select(p => p.Value).ToList();   
+            return Products.Select(p => p.Value).ToList();
         }
 
-            
     }
 }

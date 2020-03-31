@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic; 
+using DC.Core; 
 
 
 
@@ -10,7 +10,6 @@ namespace DC
         static void Main(string[] args)
         {
             var key = 'y';
-
 
             ProductManager productManager = new ProductManager();
 
@@ -51,7 +50,8 @@ namespace DC
             string item = Console.ReadLine();
 
             var product2 = productManager.GetProduct(item);
-            Console.WriteLine($"Your product: {product2.Id} - {product2.NameProduct}");
+            
+            Console.WriteLine($"Your product: {product2?.Id} - {product2?.NameProduct}");
 
 
             Console.ReadLine();
