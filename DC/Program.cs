@@ -24,7 +24,6 @@ namespace DC
                     Console.WriteLine("Enter:");
                     note = Console.ReadLine();
 
-                    productManager.AddProduct(note);
                     if (productManager.AddProduct(note))
                     {
                         Console.WriteLine("Sucсess");
@@ -39,7 +38,13 @@ namespace DC
                     break;
                 }
             }
-            productManager.SeeDictionary();
+
+            Dictionary<string,string> ListProducts = productManager.WatchAllProduct();
+            foreach (KeyValuePair<string, string> keyValuePair in ListProducts)
+            {
+                Console.WriteLine($"{keyValuePair.Key} - {keyValuePair.Value}");
+            }
+            //Console.WriteLine(productManager.WatchAllProduct().ToString());
             Console.ReadLine();
         }
     }

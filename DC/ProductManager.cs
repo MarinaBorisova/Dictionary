@@ -9,12 +9,6 @@ namespace DC
         string item, value;
         private Dictionary<string, string> Products = new Dictionary<string, string>();
 
-        public Product GetProduct(string id)
-        {
-            var product = new Product();
-            //add functional
-        }
-
         public bool AddProduct(string Note)
         {
             item = Note.Substring(0, Note.IndexOf(' '));
@@ -32,12 +26,33 @@ namespace DC
             }
         }
 
-        public void SeeDictionary()
+        //public Product GetSomeProducts(string item)
+        //{
+        //    var products = new Product();
+
+        //    if (Products.ContainsKey(item))
+        //    {
+        //        products.Id = item;
+        //        products.NameProduct = value;
+
+        //        return products;
+        //    }
+        //}
+        
+        
+        public Dictionary<string, string> WatchAllProduct()
         {
-            foreach (KeyValuePair<string, string> pair in ProductDictionary)
+            foreach (KeyValuePair<string, string> pair in Products)
             {
-                Console.WriteLine($" {pair.Key} - {pair.Value}");
+                return Products;
             }
+            var EndProducts = new Dictionary<string, string>
+            {
+                { "*******", "******" }
+            };
+            return EndProducts;
         }
+
+            
     }
 }
