@@ -1,0 +1,40 @@
+﻿@{ 
+    Layout = null;
+}
+
+@model IList<ProductModel>
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Some title</title>
+</head>
+<body>
+    <div>
+        <table>
+            <tr>
+                <td> <p> Id </p> </td>
+                <td> <p> Value </p> </td>
+            </tr>
+
+            @*@if (@Model[0] == null)
+            {
+              <tr>
+                <td><p>Пусто</p></td>
+              </tr>*@
+                
+            }
+            @foreach (var product in @Model)
+            {
+            <tr>
+               
+                <td><p>@product.Id</p></td>
+                <td><p>@product.NameProduct</p></td>
+            </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

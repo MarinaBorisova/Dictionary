@@ -5,7 +5,7 @@ namespace DC.Core
 {
     public sealed class ProductManager
     {
-        private Dictionary<string, Product> Products = new Dictionary<string, Product>();
+        private static Dictionary<string, Product> Products = new Dictionary<string, Product>();
 
         public bool AddProduct(Product product)
         {
