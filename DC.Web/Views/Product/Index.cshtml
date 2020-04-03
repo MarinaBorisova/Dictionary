@@ -22,7 +22,7 @@
             {
                 <tr>
 
-                    <td><p> @product.Id </p></td>
+                    <td><p> @Html.ActionLink(product.Id, "Get", routeValues: new { id=product.Id}) </p></td>
                     <td><p>@product.NameProduct</p></td>
                 </tr>
             }

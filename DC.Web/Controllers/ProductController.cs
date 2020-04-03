@@ -7,7 +7,7 @@ namespace DC.Web.Controllers
 {
     public class ProductController : Controller
     {
-        public ActionResult Index()
+        public  ActionResult Index()
         {
             var productManager = new ProductManager();
             var products = productManager.GetProducts().Select(p => new ProductModel(p.Id, p.NameProduct)).ToList();
@@ -20,18 +20,26 @@ namespace DC.Web.Controllers
             return View();
         }
         [HttpPost]
-        public string Add(string id, string nameproduct)
+        public ActionResult Add(string id, string nameproduct)
         {
             var productManager = new ProductManager();
             var product = new Product(id, nameproduct);
             if (productManager.AddProduct(product))
             {
-                return "Success";
+                return View();
             }
             else
             {
-                return "Error";
+                return RedirectToAction("Index");
             }
+        }
+        public ActionResult Get(string id)
+        {
+            var productManager = new ProductManager();
+            var product = productManager.GetProduct(id);
+            var productmodel = new ProductModel(product.Id, product.NameProduct);
+
+            return View("Datails", productmodel);
         }
     }
 }
