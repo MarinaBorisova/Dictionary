@@ -1,30 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using DC.Core;
 using DC.Web.Models;
 
 namespace DC.Web.Controllers
 {
-    [Route ("[Controller]")]
     public class ProductController : Controller
     {
         public ActionResult Index()
         {
             var productManager = new ProductManager();
-
-            productManager.AddProduct(new Product("qwe", "ewq"));
-            productManager.AddProduct(new Product("asd", "dsa"));
-            productManager.AddProduct(new Product("zxc", "cxz"));
-
-            var products =  productManager.GetProducts().Select(p => new ProductModel(p.Id, p.NameProduct)).ToList();
+            var products = productManager.GetProducts().Select(p => new ProductModel(p.Id, p.NameProduct)).ToList();
 
             return View(products);
         }
-
-        public void SaveEneters()
-        { }
+        [HttpGet]
+        public ActionResult Add()
+        {
+            return View();
+        }
+        [HttpPost]
+        public string Add(string id, string nameproduct)
+        {
+            var productManager = new ProductManager();
+            var product = new Product(id, nameproduct);
+            if (productManager.AddProduct(product))
+            {
+                return "Success";
+            }
+            else
+            {
+                return "Error";
+            }
+        }
     }
 }

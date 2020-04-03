@@ -1,0 +1,29 @@
+﻿@{
+    Layout = null;
+}
+@model DC.Web.Models.ProductModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add</title>
+</head>
+<body>
+    <div>
+        <form method="post">
+            <table>
+                <tr>
+                    <td><p>Enter product Id </p></td>
+                    <td><input type="text" name="Id" /> </td>
+                </tr>
+                <tr>
+                    <td><p>Enter product Name </p></td>
+                    <td> <input type="text" name="NameProduct" /> </td>
+                </tr>
+                <tr><td><input type="submit" value="Save" /> </td><td></td></tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
