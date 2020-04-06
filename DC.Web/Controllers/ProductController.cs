@@ -12,8 +12,17 @@ namespace DC.Web.Controllers
             var productManager = new ProductManager();
             var products = productManager.GetProducts().Select(p => new ProductModel(p.Id, p.NameProduct)).ToList();
 
+           
+
             return View(products);
         }
+
+        public ActionResult Partial()
+        {
+            return PartialView();
+        }
+      
+
         [HttpGet]
         public ActionResult Add()
         {

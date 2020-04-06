@@ -13,6 +13,7 @@
 </head>
 <body>
     <div>
+
         <table>
             <tr>
                 <td> <p> Id </p> </td>
@@ -22,14 +23,13 @@
             {
                 <tr>
 
-                    <td><p> @Html.ActionLink(product.Id, "Get", routeValues: new { id=product.Id}) </p></td>
+                    <td><p> @Html.ActionLink(product.Id, "Get", routeValues: new { id = product.Id }) </p></td>
                     <td><p>@product.NameProduct</p></td>
                 </tr>
             }
             <tr><td><p> <a href="Product/Add/"> Add </a></p></td></tr>
         </table>
-        
-
+        <partial name="PartialView">
     </div>
 </body>
 </html>
