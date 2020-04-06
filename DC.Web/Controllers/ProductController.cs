@@ -42,13 +42,5 @@ namespace DC.Web.Controllers
                 return RedirectToAction("Index");
             }
         }
-        public ActionResult Get(string id)
-        {
-            var productManager = new ProductManager();
-            var product = productManager.GetProduct(id);
-            var productmodel = new ProductModel(product.Id, product.NameProduct);
-
-            return View("Datails", productmodel);
-        }
     }
 }
