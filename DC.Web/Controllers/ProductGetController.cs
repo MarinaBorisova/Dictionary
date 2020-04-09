@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using DC.Core;
 using DC.Web.Models;
+using DC.SQLServices;
+using Microsoft.Extensions.Configuration;
 
 namespace DC.Web.Controllers
 {
@@ -8,14 +10,13 @@ namespace DC.Web.Controllers
     [ApiController]
     public class ProductGetController : ControllerBase
     {
-        [HttpGet("{id}")]
-        public ProductModel Get(string id)
-        {
-            var productManager = new ProductManager();
-            var product = productManager.GetProduct(id);
-            var productmodel = new ProductModel(product.Id, product.NameProduct);
+        //private ProductManager _productManager;
+        //public ProductGetController(IConfiguration configuration)
+        //{
+        //    ProductRepository productRepository = new ProductRepository(configuration.GetConnectionString("Database"));
+        //    _productManager = new ProductManager(productRepository);
+        //}
+        //[HttpGet("{id}")]
 
-            return productmodel;
-        }
     }
 }
