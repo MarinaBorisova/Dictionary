@@ -1,10 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
+using DC.Core;
+using DC.SQLServices;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -25,6 +23,11 @@ namespace DC.Web
         {
             services.AddControllersWithViews();
             services.AddSingleton(Configuration);
+            services.AddTransient<IProductRepository, ProductRepository>(servericeProvider =>
+            {
+                return new ProductRepository(Configuration.GetConnectionString("Database"));
+            });
+            services.AddTransient<ProductManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
