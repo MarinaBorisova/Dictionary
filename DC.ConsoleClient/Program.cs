@@ -1,17 +1,24 @@
 ﻿using System;
-using DC.Core; 
-
-
+using DC.Core;
+using DC.SQLServices;
+using Microsoft.Extensions.Configuration;
 
 namespace DC
 {
     class Program
     {
         static void Main(string[] args)
+        {        
+            IConfiguration config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
+            var connecitonString = config.GetConnectionString("Database");
+            ProductManager productManager = new ProductManager(new ProductRepository(connecitonString));
+
+            Execute(productManager);           
+        }
+
+        private static void Execute(ProductManager productManager)
         {
             var key = 'y';
-
-            ProductManager productManager = new ProductManager();
 
             while (key == 'y')
             {
@@ -21,7 +28,7 @@ namespace DC
                 if (key == 'y')
                 {
                     Console.WriteLine("Enter:");
-                    var  note = Console.ReadLine();
+                    var note = Console.ReadLine();
 
                     var product1 = new Product(note.Substring(0, note.IndexOf(' ')), note.Substring(note.IndexOf(' ') + 1));
 
@@ -50,7 +57,7 @@ namespace DC
             string item = Console.ReadLine();
 
             var product2 = productManager.GetProduct(item);
-            
+
             Console.WriteLine($"Your product: {product2?.Id} - {product2?.NameProduct}");
 
 

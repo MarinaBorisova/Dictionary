@@ -2,20 +2,18 @@
 using Microsoft.AspNetCore.Mvc;
 using DC.Core;
 using DC.Web.Models;
-using DC.SQLServices;
-using Microsoft.Extensions.Configuration;
 
 namespace DC.Web.Controllers
 {
     public class ProductController : Controller
     {
-        private ProductManager _productManager;
+        private IProductManager _productManager;
 
-        public ProductController(IConfiguration configuration)
+        public ProductController(IProductManager productManager)
         {
-            ProductRepository productRepository = new ProductRepository(configuration.GetConnectionString("Database"));
-            _productManager = new ProductManager(productRepository);
+            _productManager = productManager;
         }
+
         public  ActionResult Index()
         {
             var products = _productManager.GetProducts().Select(p => new ProductModel(p.Id, p.NameProduct)).ToList();
