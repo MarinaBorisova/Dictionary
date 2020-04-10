@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 
 namespace DC.Core
 {
-    public sealed class ProductManager
+    public sealed class ProductManager : IProductManager
     {
         //private static Dictionary<string, Product> Products = new Dictionary<string, Product>();
         private readonly IProductRepository _productRepository;

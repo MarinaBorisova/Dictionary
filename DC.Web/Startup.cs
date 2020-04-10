@@ -27,7 +27,7 @@ namespace DC.Web
             {
                 return new ProductRepository(Configuration.GetConnectionString("Database"));
             });
-            services.AddTransient<ProductManager>();
+            services.AddTransient<IProductManager, ProductManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,6 +56,6 @@ namespace DC.Web
                     name: "default",
                     pattern: "{controller=Product}/{action=Index}/{id?}");
             });
-        }
+        }        
     }
 }

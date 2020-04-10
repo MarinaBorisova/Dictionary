@@ -7,9 +7,9 @@ namespace DC.Web.Controllers
 {
     public class ProductController : Controller
     {
-        private ProductManager _productManager;
+        private IProductManager _productManager;
 
-        public ProductController(ProductManager productManager)
+        public ProductController(IProductManager productManager)
         {
             _productManager = productManager;
         }
