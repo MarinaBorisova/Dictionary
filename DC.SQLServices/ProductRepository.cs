@@ -15,15 +15,20 @@ namespace DC.SQLServices
         {
             _connectionString = connectionString;
         }
-        public bool AddProduct(Product product)
+        public bool Products_Add(string id, string nameProduct)
         {
-            if (product.Id != null && product.NameProduct != null)
+            if (id != null && nameProduct != null)
             {
-                string queryString = $"INSERT INTO dbo.Repository (Id,NameProduct) VALUES ('{product.Id}', '{product.NameProduct}')";
+                string queryString = $"INSERT INTO dbo.Repository (Id,NameProduct) VALUES (@Id, @NameProduct)";
                 using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
                     SqlCommand command = new SqlCommand(queryString, connection);
                     connection.Open();
+
+                    SqlParameter idParameter = new SqlParameter("@Id", id);
+                    command.Parameters.Add(idParameter);
+                    SqlParameter nameParameter = new SqlParameter("@NameProduct", nameProduct);
+                    command.Parameters.Add(nameParameter);
 
                     command.ExecuteNonQuery();
                     return true;
@@ -35,14 +40,16 @@ namespace DC.SQLServices
             }
         }
 
-        public Product GetProduct(string id)
+        public Product Products_Get_by_Id(string id)
         {
-            string queryString = $"SELECT * FROM dbo.Repository WHERE CONVERT(VARCHAR, Id) = ('{id}')";
+            string queryString = $"SELECT * FROM dbo.Repository WHERE CONVERT(VARCHAR, Id) = (@Id)";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(queryString, connection);
                 connection.Open();
+                SqlParameter idParameter = new SqlParameter("@Id", id);
+                command.Parameters.Add(idParameter);
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
                     if (reader.Read())
@@ -57,7 +64,7 @@ namespace DC.SQLServices
             }
         }
 
-        public IList<Product> GetProducts()
+        public IList<Product> Products_Get_All()
         {
             string queryString ="SELECT * FROM dbo.Repository;";
             using (SqlConnection connection = new SqlConnection(_connectionString))
