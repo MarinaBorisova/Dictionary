@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using DC.Core;
-using System.Data;
-using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
-using Microsoft.ApplicationBlocks.Data;
 
 namespace DC.SQLServices
 {
