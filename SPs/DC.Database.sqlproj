@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>Sps</Name>
+    <Name>DC.Database</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{abb78ee3-da58-4ad4-af25-1453cda1f12f}</ProjectGuid>
@@ -56,8 +56,6 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
-    <Folder Include="PublishLocations" />
-    <Folder Include="Compares" />
     <Folder Include="dbo" />
     <Folder Include="dbo\Tables" />
     <Folder Include="dbo\Stored Procedures" />
@@ -70,9 +68,5 @@
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Sps.refactorlog" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PublishLocations\Sps.publish.xml" />
-    <None Include="Compares\SpsCompare.scmp" />
   </ItemGroup>
 </Project>

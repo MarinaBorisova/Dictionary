@@ -17,15 +17,16 @@ namespace DC.SQLServices
         {
             if (id != null && nameProduct != null)
             {
-                string queryString = $"INSERT INTO dbo.Repository (Id,NameProduct) VALUES (@Id, @NameProduct)";
+                string queryString = "AddProduct";
                 using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
                     SqlCommand command = new SqlCommand(queryString, connection);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
                     connection.Open();
 
-                    SqlParameter idParameter = new SqlParameter("@Id", id);
+                    SqlParameter idParameter = new SqlParameter("@ProductId", id);
                     command.Parameters.Add(idParameter);
-                    SqlParameter nameParameter = new SqlParameter("@NameProduct", nameProduct);
+                    SqlParameter nameParameter = new SqlParameter("@ProductName", nameProduct);
                     command.Parameters.Add(nameParameter);
 
                     command.ExecuteNonQuery();
@@ -40,13 +41,14 @@ namespace DC.SQLServices
 
         public Product ProductsGetbyId(string id)
         {
-            string queryString = $"SELECT * FROM dbo.Repository WHERE CONVERT(VARCHAR, Id) = (@Id)";
+            string queryString = "GetProductById";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(queryString, connection);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
                 connection.Open();
-                SqlParameter idParameter = new SqlParameter("@Id", id);
+                SqlParameter idParameter = new SqlParameter("@ProductId", id);
                 command.Parameters.Add(idParameter);
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
@@ -68,6 +70,7 @@ namespace DC.SQLServices
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(queryString, connection);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
                 connection.Open();
                 using (SqlDataReader reader = command.ExecuteReader())
                 {

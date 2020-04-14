@@ -15,7 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DC.Core\DC.Core.csproj" />
-    <ProjectReference Include="..\Sps\Sps.sqlproj" />
+    <ProjectReference Include="..\Sps\DC.Database.sqlproj" />
   </ItemGroup>
 
 </Project>

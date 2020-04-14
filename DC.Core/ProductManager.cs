@@ -4,7 +4,6 @@ namespace DC.Core
 {
     public sealed class ProductManager : IProductManager
     {
-        //private static Dictionary<string, Product> Products = new Dictionary<string, Product>();
         private readonly IProductRepository _productRepository;
 
        public ProductManager(IProductRepository productRepository)
@@ -16,29 +15,18 @@ namespace DC.Core
         {
             string id = product.Id;
             string nameproduct = product.NameProduct;
-          return _productRepository.ProductsAdd(id, nameproduct);
-            //if (Products.ContainsKey(product.Id))
-            //{
-            //    return false;
-            //}
-            //else
-            //{
-            //    Products.Add(product.Id, product);
-            //    return true;
-            //}
+            return _productRepository.ProductsAdd(id, nameproduct);
         }
 
         public Product GetProduct(string id)
         {
             return _productRepository.ProductsGetbyId(id);
-            //return Products.TryGetValue(id, out var product) ? product : null;
         }
 
 
         public IList<Product> GetProducts()
         {
             return _productRepository.ProductsGetAll();
-            //return Products.Select(p => p.Value).ToList();
         }
 
     }
