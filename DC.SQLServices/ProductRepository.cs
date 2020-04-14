@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using DC.Core;
+using Microsoft.Build.Tasks;
 using Microsoft.Data.SqlClient;
 
 namespace DC.SQLServices
@@ -12,7 +13,7 @@ namespace DC.SQLServices
         {
             _connectionString = connectionString;
         }
-        public bool Products_Add(string id, string nameProduct)
+        public bool ProductsAdd(string id, string nameProduct)
         {
             if (id != null && nameProduct != null)
             {
@@ -37,7 +38,7 @@ namespace DC.SQLServices
             }
         }
 
-        public Product Products_Get_by_Id(string id)
+        public Product ProductsGetbyId(string id)
         {
             string queryString = $"SELECT * FROM dbo.Repository WHERE CONVERT(VARCHAR, Id) = (@Id)";
 
@@ -61,9 +62,9 @@ namespace DC.SQLServices
             }
         }
 
-        public IList<Product> Products_Get_All()
+        public IList<Product> ProductsGetAll()
         {
-            string queryString ="SELECT * FROM dbo.Repository;";
+            string queryString = "GetProducts";
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand(queryString, connection);

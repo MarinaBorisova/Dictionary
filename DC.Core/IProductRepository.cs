@@ -6,8 +6,8 @@ namespace DC.Core
 {
     public interface IProductRepository
     {
-        IList<Product> Products_Get_All();
-        Product Products_Get_by_Id(string id);
-        bool Products_Add(string id, string nameProduct);
+        IList<Product> ProductsGetAll();
+        Product ProductsGetbyId(string id);
+        bool ProductsAdd(string id, string nameProduct);
     }
 }

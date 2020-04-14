@@ -48,7 +48,6 @@ namespace DC.Web.Controllers
         }
         public ActionResult Get(string id)
         {
-            //var productManager = new ProductManager();
             var product = _productManager.GetProduct(id);
             var productmodel = new ProductModel(product.Id, product.NameProduct);
 

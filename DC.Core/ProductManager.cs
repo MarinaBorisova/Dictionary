@@ -16,7 +16,7 @@ namespace DC.Core
         {
             string id = product.Id;
             string nameproduct = product.NameProduct;
-          return _productRepository.Products_Add(id, nameproduct);
+          return _productRepository.ProductsAdd(id, nameproduct);
             //if (Products.ContainsKey(product.Id))
             //{
             //    return false;
@@ -30,14 +30,14 @@ namespace DC.Core
 
         public Product GetProduct(string id)
         {
-            return _productRepository.Products_Get_by_Id(id);
+            return _productRepository.ProductsGetbyId(id);
             //return Products.TryGetValue(id, out var product) ? product : null;
         }
 
 
         public IList<Product> GetProducts()
         {
-            return _productRepository.Products_Get_All();
+            return _productRepository.ProductsGetAll();
             //return Products.Select(p => p.Value).ToList();
         }
 
