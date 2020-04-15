@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DC.SQLServices", "DC.SQLSer
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DC.Database", "Sps\DC.Database.sqlproj", "{ABB78EE3-DA58-4AD4-AF25-1453CDA1F12F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DC.Core.Tests", "DC.UTest\DC.Core.Tests.csproj", "{9B6D85A0-6FFF-4642-8ABF-99FEE278ACA8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{B329118A-F75B-45D1-BD0E-7882410982FE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{ABB78EE3-DA58-4AD4-AF25-1453CDA1F12F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{ABB78EE3-DA58-4AD4-AF25-1453CDA1F12F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B6D85A0-6FFF-4642-8ABF-99FEE278ACA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B6D85A0-6FFF-4642-8ABF-99FEE278ACA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B6D85A0-6FFF-4642-8ABF-99FEE278ACA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B6D85A0-6FFF-4642-8ABF-99FEE278ACA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

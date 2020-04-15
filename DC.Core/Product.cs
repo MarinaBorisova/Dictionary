@@ -2,7 +2,7 @@
 
 namespace DC.Core
 {
-    public sealed class Product
+    public sealed class Product : IProduct
     {
         public string Id { get; set; }
         public string NameProduct { get; set; }

@@ -28,6 +28,5 @@ namespace DC.Core
         {
             return _productRepository.ProductsGetAll();
         }
-
     }
 }
