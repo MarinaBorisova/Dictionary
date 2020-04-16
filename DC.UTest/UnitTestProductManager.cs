@@ -38,7 +38,12 @@ namespace DC.UTest
         [Test]
         public void GetProducts_ReturnListOfProducts()
         {
-            _fakeReposiitory.ProductsGetAll().Returns(new List<Product>());
+            _fakeReposiitory.ProductsGetAll().Returns(new List<Product>
+            {
+                new Product("idtest1", "nametest1"),
+                new Product("idtest2", "nametest2"),
+            });
+
             _target.GetProducts();
 
             _fakeReposiitory.Received().ProductsGetAll();
