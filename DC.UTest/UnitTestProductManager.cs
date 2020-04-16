@@ -38,26 +38,31 @@ namespace DC.UTest
         [Test]
         public void GetProducts_ReturnListOfProducts()
         {
-            _fakeReposiitory.ProductsGetAll().Returns(new List<Product>
+            var expexted = new List<Product>
             {
                 new Product("idtest1", "nametest1"),
                 new Product("idtest2", "nametest2"),
-            });
+            };
+            _fakeReposiitory.ProductsGetAll().Returns(new List<Product>(expexted));
 
-            _target.GetProducts();
+            var actual = _target.GetProducts();
 
+            CollectionAssert.AreEqual(expexted, actual);
             _fakeReposiitory.Received().ProductsGetAll();
         }
 
         [Test]
         public void GetProductById_ReturnProduct()
         {
-            var productTest = new Product("idTest", "nameTest");
+            var expexted = new Product("idTest", "nameTest");
 
-            _fakeReposiitory.ProductsGetbyId(productTest.Id).Returns(productTest);
-            _target.GetProduct(productTest.Id);
+            _fakeReposiitory.ProductsGetbyId(expexted.Id).Returns(expexted);
+             var actul = _target.GetProduct(expexted.Id);
 
-            _fakeReposiitory.Received().ProductsGetbyId(productTest.Id);
+             Assert.AreEqual(expexted, actul);
+            _fakeReposiitory.Received().ProductsGetbyId(expexted.Id);
+
+            
         }
     }
 }
