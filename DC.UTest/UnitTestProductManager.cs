@@ -44,6 +44,15 @@ namespace DC.UTest
             _fakeReposiitory.Received().ProductsGetAll();
         }
 
-        
+        [Test]
+        public void GetProductById_ReturnProduct()
+        {
+            var productTest = new Product("idTest", "nameTest");
+
+            _fakeReposiitory.ProductsGetbyId(productTest.Id).Returns(productTest);
+            _target.GetProduct(productTest.Id);
+
+            _fakeReposiitory.Received().ProductsGetbyId(productTest.Id);
+        }
     }
 }
