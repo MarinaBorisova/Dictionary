@@ -1,6 +1,8 @@
 using NUnit.Framework;
 using NSubstitute;
 using DC.Core;
+using System.Collections.Generic;
+
 namespace DC.UTest
 {
     [TestFixture]
@@ -30,9 +32,18 @@ namespace DC.UTest
                 .Received()
                 .ProductsAdd(productTest.Id, productTest.NameProduct);
 
-            
-
             Assert.That(result, Is.EqualTo(true));
         }
+
+        [Test]
+        public void GetProducts_ReturnListOfProducts()
+        {
+            _fakeReposiitory.ProductsGetAll().Returns(new List<Product>());
+            _target.GetProducts();
+
+            _fakeReposiitory.Received().ProductsGetAll();
+        }
+
+        
     }
 }
