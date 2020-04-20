@@ -9,11 +9,20 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="3.1.3" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.3" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
+    <PackageReference Include="NLog" Version="4.7.0" />
+    <PackageReference Include="NLog.Schema" Version="4.7.0" />
+    <PackageReference Include="NLog.Web.AspNetCore" Version="4.9.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\DC.Core\DC.Core.csproj" />
     <ProjectReference Include="..\DC.SQLServices\DC.SQLServices.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="nlog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 

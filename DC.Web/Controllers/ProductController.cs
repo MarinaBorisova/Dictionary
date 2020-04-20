@@ -2,12 +2,14 @@
 using Microsoft.AspNetCore.Mvc;
 using DC.Core;
 using DC.Web.Models;
+using Microsoft.Extensions.Logging;
 
 namespace DC.Web.Controllers
 {
     public class ProductController : Controller
     {
         private IProductManager _productManager;
+        
 
         public ProductController(IProductManager productManager)
         {

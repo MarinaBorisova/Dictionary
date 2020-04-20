@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DC.SQLServices", "DC.SQLSer
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DC.Database", "Sps\DC.Database.sqlproj", "{ABB78EE3-DA58-4AD4-AF25-1453CDA1F12F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DC.Core.Tests", "DC.UTest\DC.Core.Tests.csproj", "{9B6D85A0-6FFF-4642-8ABF-99FEE278ACA8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DC.Core.Tests", "DC.UTest\DC.Core.Tests.csproj", "{9B6D85A0-6FFF-4642-8ABF-99FEE278ACA8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
